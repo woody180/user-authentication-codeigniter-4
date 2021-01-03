@@ -11,7 +11,7 @@
 ```
 4. Inside the app/Controllers/BaseController directory add following helper in helpers array - ```protected $helpers = ['checkuser'];```
 ![](screen-01.png)
-5. Use helper function to check if user is logged in or it have a privilegies - \App\Helpers\CheckUser::loggedin()
+5. Use helper function to check if user is logged in or it have a privileges - \App\Helpers\CheckUser::loggedin()
 
 Note:
 Logged in user is stored inside session storage with user ID - ```session()->get('loggedin')```. If key not exists - null will be returned.
@@ -33,12 +33,17 @@ Views are generated corresponding to the **Users** controller. You can find tham
 
 # Helper function
 
-There is a helper function available by which you can chack whether users is logged in, or do logged in user have a privilegies declared in usersgroup table.
+There is a helper function available by which you can chack whether users is logged in, or do logged in user have a privileges declared in usersgroup table.
 
 Before using this helper function, make sure that it added in to the **app/Controllers/BaseController.php** file.
 
+As an argument it takes user privilege ides as an array. Take a look at the **usersgroup** table inside the database, at the **groupid** row.
+
 ```
 \App\Helpers\CheckUser::user();
+
 // OR
-\App\Helpers\CheckUser::user([2,3]);
+
+// Check if user is logged in and have a manager or registered user privileges
+\App\Helpers\CheckUser::user([2,3]); 
 ```
