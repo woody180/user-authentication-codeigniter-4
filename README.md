@@ -32,7 +32,10 @@ You can find tham on **App/Controllres/Users.php**
 Views are generated corresponding to the **Users** controller. You can find tham on **App/Views** directory.
 
 # Helper function
+
 There is a helper function available by which you can chack whether users is logged in, or do logged in user have a privilegies declared in usersgroup table.
+
+Before using this helper function, make sure that it added in to the **app/Controllers/BaseController.php** file.
 
 ```
 \App\Helpers\CheckUser::loggedin();
