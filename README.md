@@ -18,7 +18,7 @@ Logged in user is stored inside session storage with user ID - ```session()->get
 
 
 # Routing urls
-At the end following routes going to be available - 
+At the end, following routes going to be available - 
 
 - https://sitename.com/users/login
 - https://sitename.com/users/logout
