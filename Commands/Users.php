@@ -108,7 +108,7 @@ class Users extends BaseController {
             }
         }
 
-        return view(\'login\', [
+        return view(\'users/login\', [
             \'errors\' => $errors
         ]);
     }
@@ -191,7 +191,7 @@ class Users extends BaseController {
         }
 
 
-        return view(\'register\', [
+        return view(\'users/register\', [
             \'errors\' => $errors
         ]);
     }
@@ -258,7 +258,7 @@ class Users extends BaseController {
             }
         }
 
-        return view(\'reset\', [
+        return view(\'users/reset\', [
             \'errors\' => $errors,
             \'success\' => $success
         ]);
@@ -319,7 +319,7 @@ class Users extends BaseController {
         $user = $this->usersModel->find(session()->get(\'loggedin\'));
 
         // Render view
-        return view(\'account\', [
+        return view(\'users/account\', [
             \'user\' => $user,
             \'errors\' => $errors,
             \'success\' => $success
@@ -548,10 +548,12 @@ class UsersModel extends Model {
         ///////////////////////// END OF THE USERS MODEL /////////////////////////
 
 
+        /////////////////////////// CREATE USERS DIRECTORY IN VIEWS ///////////////////////////
+        mkdir(APPPATH . 'Views/users');
 
 
         /////////////////////////// INSERT ACCOUNT ///////////////////////////
-        file_put_contents(APPPATH . 'Views/account.php', '<!DOCTYPE html>
+        file_put_contents(APPPATH . 'Views/users/account.php', '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -627,7 +629,7 @@ class UsersModel extends Model {
 
 
         /////////////////////////// INSERT LOGIN ///////////////////////////
-        file_put_contents(APPPATH . 'Views/login.php', '<!DOCTYPE html>
+        file_put_contents(APPPATH . 'Views/users/login.php', '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -700,7 +702,7 @@ class UsersModel extends Model {
 
 
         /////////////////////////// INSERT REGISTER ///////////////////////////
-        file_put_contents(APPPATH . 'Views/register.php', '<!DOCTYPE html>
+        file_put_contents(APPPATH . 'Views/users/register.php', '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -775,7 +777,7 @@ class UsersModel extends Model {
 
 
         /////////////////////////// INSERT RESET ///////////////////////////
-        file_put_contents(APPPATH . 'Views/reset.php', '<!DOCTYPE html>
+        file_put_contents(APPPATH . 'Views/users/reset.php', '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
