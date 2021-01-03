@@ -38,7 +38,7 @@ There is a helper function available by which you can chack whether users is log
 Before using this helper function, make sure that it added in to the **app/Controllers/BaseController.php** file.
 
 ```
-\App\Helpers\CheckUser::loggedin();
+\App\Helpers\CheckUser::user();
 // OR
-\App\Helpers\CheckUser::loggedin([2,3]);
+\App\Helpers\CheckUser::user([2,3]);
 ```
