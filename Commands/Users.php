@@ -850,7 +850,7 @@ class CheckUser {
 
     private static $userModel;
 
-    public static function loggedin(array $privileges = []) {
+    public static function user(array $privileges = []) {
 
         // Init user model
         $userModel = new UsersModel();
