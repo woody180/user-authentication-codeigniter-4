@@ -15,3 +15,27 @@
 
 Note:
 Logged in user is stored inside session storage with user ID - ```session()->get('loggedin')```. If key not exists - null will be returned.
+
+
+# Routing urls
+At the end following routes going to be available - 
+
+- https://sitename.com/users/login
+- https://sitename.com/users/logout
+- https://sitename.com/users/registration
+- https://sitename.com/users/account
+- https://sitename.com/users/validation
+
+You can find tham on **App/Controllres/Users.php**
+
+# Views
+Views are generated corresponding to the **Users** controller. You can find tham on **App/Views** directory.
+
+# Helper function
+There is a helper function available by which you can chack whether users is logged in, or do logged in user have a privilegies declared in usersgroup table.
+
+```
+\App\Helpers\CheckUser::loggedin();
+// OR
+\App\Helpers\CheckUser::loggedin([2,3]);
+```
