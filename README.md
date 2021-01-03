@@ -39,7 +39,13 @@ Before using this helper function, make sure that it added in to the **app/Contr
 
 As an argument it takes user privilege ides as an array. Take a look at the **usersgroup** table inside the database, at the **groupid** row.
 
+By default user can have three privileges.
+- **groupid 1** - Super usre
+- **groupid 2** - Manager
+- **groupid 3** - Registered user
+
 ```
+// Check if user is logged in.
 \App\Helpers\CheckUser::user();
 
 // OR
