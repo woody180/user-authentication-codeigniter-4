@@ -9,7 +9,7 @@
 - php spark migrate
 - php spark db:seed Users
 ```
-4. Inside the app/Controllers/BaseController directory add following helper in helpers array - ```protected $helpers = ['checkuser'];```
+4. Inside the app/Controllers/BaseController directory add following helper in helpers array - ```protected $helpers = ['users'];```
 ![](screen-01.png)
 5. Use helper function to check if user is logged in or it have a privileges - \App\Helpers\CheckUser::loggedin()
 
