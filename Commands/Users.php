@@ -844,15 +844,15 @@ class UsersModel extends Model {
 
 
         /////////////////////////// USER HELPER FUNCTION ///////////////////////////
-        file_put_contents(APPPATH . 'Helpers/checkuser_helper.php', '<?php namespace App\Helpers;
+        file_put_contents(APPPATH . 'Helpers/users_helper.php', '<?php namespace App\Helpers;
 
 use App\Models\UsersModel;
 
-class CheckUser {
+class Users {
 
     private static $userModel;
 
-    public static function user(array $privileges = []) {
+    public static function getUser(array $privileges = []) {
 
         // Init user model
         $userModel = new UsersModel();

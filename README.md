@@ -46,10 +46,10 @@ By default user can have three privileges.
 
 ```
 // Check if user is logged in.
-\App\Helpers\CheckUser::user();
+\App\Helpers\Users::getUser();
 
 // OR
 
 // Check if user is logged in and have a manager or registered user privileges
-\App\Helpers\CheckUser::user([2,3]); 
+\App\Helpers\Users::getUser([2,3]); 
 ```
