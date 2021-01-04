@@ -297,18 +297,26 @@ class Users extends BaseController {
                 // User
                 $user = $this->usersModel->find(session()->get(\'loggedin\'));
 
-                // Password
-                $password = $this->request->getPost(\'password\') ? password_hash($this->request->getPost(\'password\'), PASSWORD_DEFAULT) : $user->password;
+                // Check user
+                $checkUser = $this->usersModel->where(\'email\', $this->request->getPost(\'email\'))->find();
 
-                // User
-                $this->usersModel->update(session()->get(\'loggedin\'), [
-                    \'name\' => $data[\'name\'],
-                    \'username\' => $data[\'username\'],
-                    \'email\' => $data[\'email\'],
-                    \'password\' => $password
-                ]);
+                if ($checkUser && $checkUser[0]->id != $user->id) {
+                    $errors = ["email already taken"];
+                } else {
 
-                $success = \'User updated successfully\';
+                    // Password
+                    $password = $this->request->getPost(\'password\') ? password_hash($this->request->getPost(\'password\'), PASSWORD_DEFAULT) : $user->password;
+
+                    // User
+                    $this->usersModel->update(session()->get(\'loggedin\'), [
+                        \'name\' => $data[\'name\'],
+                        \'username\' => $data[\'username\'],
+                        \'email\' => $data[\'email\'],
+                        \'password\' => $password
+                    ]);
+
+                    $success = \'User updated successfully\';
+                }
 
             } else {
                 $errors = $this->validation->getErrors();
@@ -852,7 +860,7 @@ class Users {
 
     private static $userModel;
 
-    public static function getUser(array $privileges = []) {
+    public static function loggedin(array $privileges = []) {
 
         // Init user model
         $userModel = new UsersModel();
