@@ -11,7 +11,7 @@
 ```
 4. Inside the app/Controllers/BaseController directory add following helper in helpers array - ```protected $helpers = ['users'];```
 ![](screen-01.png)
-5. Use helper function to check if user is logged in or it have a privileges - \App\Helpers\CheckUser::loggedin()
+5. Use helper function to check if user is logged in or it have a privileges - \App\Helpers\Users::loggedin()
 
 Note:
 Logged in user is stored inside session storage with user ID - ```session()->get('loggedin')```. If key not exists - null will be returned.
